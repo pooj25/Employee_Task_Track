@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employee Task Tracking System</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Employee Task Tracking System</p>
+        <h1>Manage employees, assign work, and track progress.</h1>
+      </div>
+      <button id="refreshBtn" class="icon-button" type="button" title="Refresh dashboard" aria-label="Refresh dashboard">↻</button>
+    </header>
+
+    <main>
+      <section class="stats-grid" aria-label="Dashboard summary">
+        <article class="stat-card">
+          <span>Employees</span>
+          <strong id="employeeCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <span>Total Tasks</span>
+          <strong id="taskCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <span>Pending</span>
+          <strong id="pendingCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <span>In Progress</span>
+          <strong id="progressCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <span>Completed</span>
+          <strong id="completedCount">0</strong>
+        </article>
+        <article class="stat-card">
+          <span>High Priority</span>
+          <strong id="highPriorityCount">0</strong>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <aside class="panel">
+          <div class="tabs" role="tablist" aria-label="Forms">
+            <button class="tab active" type="button" data-tab="taskFormPanel">Task</button>
+            <button class="tab" type="button" data-tab="employeeFormPanel">Employee</button>
+          </div>
+
+          <form id="taskForm" class="form-panel active" data-panel="taskFormPanel">
+            <input type="hidden" id="taskId">
+            <label>
+              Task title
+              <input id="taskTitle" type="text" placeholder="Create weekly status report" required>
+            </label>
+            <label>
+              Description
+              <textarea id="taskDescription" placeholder="Short task details"></textarea>
+            </label>
+            <label>
+              Assign to
+              <select id="taskEmployee" required></select>
+            </label>
+            <div class="form-row">
+              <label>
+                Priority
+                <select id="taskPriority">
+                  <option>Low</option>
+                  <option selected>Medium</option>
+                  <option>High</option>
+                </select>
+              </label>
+              <label>
+                Status
+                <select id="taskStatus">
+                  <option>Pending</option>
+                  <option>In Progress</option>
+                  <option>Completed</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Due date
+              <input id="taskDueDate" type="date" required>
+            </label>
+            <div class="actions">
+              <button class="primary" type="submit">Save Task</button>
+              <button id="cancelTaskEdit" class="secondary" type="button">Clear</button>
+            </div>
+          </form>
+
+          <form id="employeeForm" class="form-panel" data-panel="employeeFormPanel">
+            <input type="hidden" id="employeeId">
+            <label>
+              Name
+              <input id="employeeName" type="text" placeholder="Employee name" required>
+            </label>
+            <label>
+              Email
+              <input id="employeeEmail" type="email" placeholder="employee@example.com" required>
+            </label>
+            <label>
+              Role
+              <input id="employeeRole" type="text" placeholder="Developer, QA, Manager" required>
+            </label>
+            <label>
+              Department
+              <input id="employeeDepartment" type="text" placeholder="Development" required>
+            </label>
+            <div class="actions">
+              <button class="primary" type="submit">Save Employee</button>
+              <button id="cancelEmployeeEdit" class="secondary" type="button">Clear</button>
+            </div>
+          </form>
+        </aside>
+
+        <section class="content-area">
+          <div class="toolbar">
+            <div>
+              <h2>Tasks</h2>
+              <p id="taskHint">Showing all assigned work</p>
+            </div>
+            <div class="filters">
+              <select id="statusFilter" aria-label="Filter by status">
+                <option value="">All statuses</option>
+                <option>Pending</option>
+                <option>In Progress</option>
+                <option>Completed</option>
+              </select>
+              <select id="employeeFilter" aria-label="Filter by employee">
+                <option value="">All employees</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Employee</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Due</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="taskTableBody"></tbody>
+            </table>
+          </div>
+
+          <section class="employee-section">
+            <div class="section-heading">
+              <h2>Employees</h2>
+              <p>Team list and completion totals</p>
+            </div>
+            <div id="employeeCards" class="employee-grid"></div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

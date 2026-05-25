@@ -1,0 +1,57 @@
+{
+  "employees": [
+    {
+      "id": "emp-1",
+      "name": "Pooja Sharma",
+      "email": "pooja@example.com",
+      "role": "Project Manager",
+      "department": "Operations"
+    },
+    {
+      "id": "emp-2",
+      "name": "Amit Verma",
+      "email": "amit@example.com",
+      "role": "Frontend Developer",
+      "department": "Development"
+    },
+    {
+      "id": "emp-3",
+      "name": "Neha Singh",
+      "email": "neha@example.com",
+      "role": "QA Tester",
+      "department": "Quality"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Prepare employee task report",
+      "description": "Collect pending and completed task details for the weekly review.",
+      "employeeId": "emp-1",
+      "priority": "High",
+      "status": "In Progress",
+      "dueDate": "2026-05-25",
+      "createdAt": "2026-05-24"
+    },
+    {
+      "id": "task-2",
+      "title": "Build dashboard layout",
+      "description": "Create responsive dashboard cards and task list UI.",
+      "employeeId": "emp-2",
+      "priority": "Medium",
+      "status": "Pending",
+      "dueDate": "2026-05-25",
+      "createdAt": "2026-05-24"
+    },
+    {
+      "id": "task-3",
+      "title": "Verify task filters",
+      "description": "Check employee, priority, and status filters with sample data.",
+      "employeeId": "emp-3",
+      "priority": "Low",
+      "status": "Completed",
+      "dueDate": "2026-05-25",
+      "createdAt": "2026-05-24"
+    }
+  ]
+}

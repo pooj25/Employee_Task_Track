@@ -1,0 +1,17 @@
+{
+  "name": "employee-task-tracking-system",
+  "version": "1.0.0",
+  "description": "Simple full-stack employee task tracking system using Node.js and vanilla HTML, CSS, and JavaScript.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "employee",
+    "tasks",
+    "tracking",
+    "node"
+  ],
+  "author": "",
+  "license": "MIT"
+}
